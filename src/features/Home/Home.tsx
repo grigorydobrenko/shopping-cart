@@ -6,7 +6,7 @@ import {Container} from "@mui/material";
 
 const Home = () => {
     return (
-        <Container maxWidth='lg' sx={{backgroundColor: 'red', display: 'flex', justifyContent: 'space-between'} }>
+        <Container maxWidth='lg' sx={{display: 'flex', justifyContent: 'space-between'} }>
             <Cart/>
             <Devices/>
             <DevicesItems/>

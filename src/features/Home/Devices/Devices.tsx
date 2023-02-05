@@ -1,10 +1,22 @@
 import React from 'react';
+import {Box, ListItem, ListItemButton, ListItemText} from "@mui/material";
 
 const Devices = () => {
     return (
-        <div>
-            Devices
-        </div>
+        <Box sx={{ width: '20%', bgcolor: 'background.paper', overflow: 'auto'}}>
+
+            <ListItem disablePadding>
+                <ListItemButton>
+                    <ListItemText primary="Trash" />
+                </ListItemButton>
+            </ListItem>
+
+            <ListItem disablePadding>
+                <ListItemButton component="a" href="#simple-list">
+                    <ListItemText primary="Spam" />
+                </ListItemButton>
+            </ListItem>
+        </Box>
     );
 };
 
