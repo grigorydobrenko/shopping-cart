@@ -1,0 +1,17 @@
+.cartItem {
+    /*border-bottom: 1px solid black;*/
+}
+
+.cartItem {
+    display: flex;
+    justify-content: space-between;
+    overflow: auto;
+}
+
+.cartItemsBox > div:nth-child(2n) {
+    background-color: lightgrey;
+}
+
+.cartItemsBox {
+    border-bottom: 2px solid #000;
+}
