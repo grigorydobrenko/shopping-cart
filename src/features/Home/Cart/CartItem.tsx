@@ -8,6 +8,7 @@ const CartItem = ({item}: any) => {
             <div className={styles.cartItem}><span>Наименование:</span> <span>{item.name}</span></div>
             <div className={styles.cartItem}><span>Производитель:</span> <span>{item.manufacturer}</span></div>
             <div className={styles.cartItem}><span>Цена:</span> <span>{item.cost}</span></div>
+            <div className={styles.cartItem}><span>Количество:</span> <span>{item.cartQuantity}</span></div>
         </div>
     );
 };

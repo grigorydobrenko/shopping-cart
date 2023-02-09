@@ -13,7 +13,6 @@ export const devicesAPI = {
                 snapshot.docs.forEach(doc => {
                     devices.push({...doc.data()})
                 })
-                console.log(devices)
                 return devices
             })
             .catch(err => {
@@ -26,7 +25,8 @@ export const devicesAPI = {
 export type DevicesType = 'flanges' | 'valves' | 'radiators'
 export type DeviceItem = {
     id: string
-    manufacturer: string,
-    cost: number,
+    manufacturer: string
+    cost: number
     name: string
+    cartQuantity: number
 }

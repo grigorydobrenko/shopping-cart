@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {devicesAPI, DevicesType} from "../../../app/api";
 
 
@@ -6,7 +6,6 @@ export const getDevices = createAsyncThunk('devices/getDevices', async (devices:
     try {
         const res = await devicesAPI.getDevices(devices)
         if (res) {
-            console.log({devices: res})
             // thunkAPI.dispatch(setAppStatusAC({status: 'succeeded'}))
             return {devices: res}
         } else {
@@ -24,8 +23,7 @@ const slice = createSlice({
     name: 'devices',
     initialState: [],
     reducers: {
-        addItem(state, action: PayloadAction<{id: string}>) {
-        },
+
     },
     extraReducers: (builder) => {
         builder.addCase(getDevices.fulfilled, (state,action) => {
@@ -35,4 +33,3 @@ const slice = createSlice({
 })
 
 export const devicesReducer = slice.reducer
-export const {addItem} = slice.actions
