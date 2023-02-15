@@ -3,7 +3,9 @@ import {DeviceItem} from "../../../app/api";
 
 
 const initialState = {
-    cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems') || '{}') : []
+    cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems') || '{}') : [],
+    cartTotalQuantity: 0,
+    cartTotalAmount: 0,
 }
 
 const slice = createSlice({
@@ -48,9 +50,32 @@ const slice = createSlice({
         clearCart(state) {
             state.cartItems = []
             localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
-        }
+        },
+        getTotals(state) {
+            let { total, quantity } = state.cartItems.reduce(
+                (cartTotal:  {
+                    total: number,
+                    quantity: number,
+                }, cartItem: DeviceItem) => {
+                    const { cost, cartQuantity } = cartItem;
+                    const itemTotal = cost * cartQuantity;
+
+                    cartTotal.total += itemTotal;
+                    cartTotal.quantity += cartQuantity;
+
+                    return cartTotal;
+                },
+                {
+                    total: 0,
+                    quantity: 0,
+                }
+            );
+            total = parseFloat(total.toFixed(2));
+            state.cartTotalQuantity = quantity;
+            state.cartTotalAmount = total;
+        },
     }
 })
 
 export const cartReducer = slice.reducer
-export const {addItem, removeItem, decreaseItemQuantity, clearCart} = slice.actions
+export const {addItem, removeItem, decreaseItemQuantity, clearCart, getTotals} = slice.actions

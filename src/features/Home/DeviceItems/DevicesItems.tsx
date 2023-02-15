@@ -39,8 +39,6 @@ const DevicesItems = () => {
                         }
                     )
 
-                    console.log(selectedRowData)
-
                     dispatch(addItem({item: selectedRowData}))
                 }}
             />

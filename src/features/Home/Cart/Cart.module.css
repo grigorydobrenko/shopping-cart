@@ -12,6 +12,7 @@
 .cartItem:last-child {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     overflow: auto;
 }
 
@@ -28,5 +29,5 @@
 }
 
 .itemQuantity {
-
+    margin-left: 10px;
 }
