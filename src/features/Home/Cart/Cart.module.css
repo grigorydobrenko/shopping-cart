@@ -2,10 +2,21 @@
     /*border-bottom: 1px solid black;*/
 }
 
-.cartItem {
+.cartItem:not(:last-child) {
     display: flex;
     justify-content: space-between;
     overflow: auto;
+    padding: 5px;
+}
+
+.cartItem:last-child {
+    display: flex;
+    justify-content: flex-end;
+    overflow: auto;
+}
+
+.cartItemsBox {
+    margin-bottom: 20px;
 }
 
 .cartItemsBox > div:nth-child(2n) {
@@ -14,4 +25,8 @@
 
 .cartItemsBox {
     border-bottom: 2px solid #000;
+}
+
+.itemQuantity {
+
 }

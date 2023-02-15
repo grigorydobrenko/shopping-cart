@@ -7,12 +7,13 @@ import {DeviceItem} from "../../../app/api";
 
 const Cart = () => {
 
-    const cartItems = useAppSelector(state => state.cart)
-    const cartMappedItems = cartItems.cartItems.map((item: DeviceItem) => <CartItem item={item} key={v4()}/>)
+    const cartItems = useAppSelector(state => state.cart.cartItems)
+    console.log(cartItems)
+    const cartMappedItems = cartItems.map((item: DeviceItem) => <CartItem item={item} key={v4()}/>)
 
     return (
         <Box sx={{width: '30%', bgcolor: 'background.paper', overflow: 'auto', border: 1}}>
-            {cartItems ? cartMappedItems : <div>'cart is empty'</div>}
+            {cartItems.length ? cartMappedItems : <div>Пустая корзина...</div>}
 
         </Box>
     )
